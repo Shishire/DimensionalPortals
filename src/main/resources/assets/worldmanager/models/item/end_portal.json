@@ -1,0 +1,13 @@
+{
+	"forge_marker" : 1,
+	"defaults" : {
+		"textures" : { },
+		"model" : null
+	},
+	"variants" : {
+		"normal" : [{
+		}],
+		"inventory" : [{
+		}]
+	}
+}
