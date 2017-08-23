@@ -10,7 +10,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockEndPortal extends net.minecraft.block.BlockEndPortal
 {
@@ -24,7 +23,6 @@ public class BlockEndPortal extends net.minecraft.block.BlockEndPortal
 		this.setUnlocalizedName(WorldManager.MOD_ID + ".end_portal");
 		this.setHardness(-1.0F);
 		this.setResistance(6000000.0F);
-		GameRegistry.registerTileEntity(TileEntityEndPortal.class, WorldManager.MOD_ID + ":end_portal");
 	}
 
 	@Override
