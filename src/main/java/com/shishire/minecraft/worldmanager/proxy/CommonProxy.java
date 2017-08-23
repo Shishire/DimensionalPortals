@@ -3,8 +3,6 @@ package com.shishire.minecraft.worldmanager.proxy;
 import com.shishire.minecraft.worldmanager.DimensionHandler;
 import com.shishire.minecraft.worldmanager.WorldManager;
 import com.shishire.minecraft.worldmanager.blocks.BlockEndPortal;
-import com.shishire.minecraft.worldmanager.tileentity.TileEntityEndPortal;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.MinecraftForge;
@@ -17,15 +15,13 @@ public class CommonProxy {
 	public void init(FMLInitializationEvent event)
 	{
 		MinecraftForge.EVENT_BUS.register(new DimensionHandler());
-		//try {
+		try {
 			BlockEndPortal endPortal = (BlockEndPortal) new BlockEndPortal(Material.PORTAL).setHardness(-1.0F).setResistance(6000000.0F);
 			GameRegistry.register(endPortal);
 			GameRegistry.register(new ItemBlock(endPortal).setRegistryName(endPortal.getRegistryName()));
-			//GameRegistry.addSubstitutionAlias("minecraft:end_portal", Type.BLOCK, new BlockEndPortal(Material.PORTAL).setHardness(-1.0F).setResistance(6000000.0F));
-			GameRegistry.registerTileEntity(TileEntityEndPortal.class, "worldmanager:end_portal");
-		//} catch (ExistingSubstitutionException e) {
-			// TODO Auto-generated catch block
-		//	WorldManager.LOG.warn("Unable to replace End Portal.  End Portals may behave incorrectly");
-		//}
+			GameRegistry.addSubstitutionAlias("minecraft:end_portal", Type.BLOCK, new BlockEndPortal(Material.PORTAL));
+		} catch (ExistingSubstitutionException e) {
+			WorldManager.LOG.warn("Unable to replace End Portal.  End Portals may behave incorrectly");
+		}
 	}
 }

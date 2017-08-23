@@ -15,12 +15,14 @@ public class TileEntityEndPortal extends net.minecraft.tileentity.TileEntityEndP
 	}
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
     {
+		super.writeToNBT(nbt);
 		nbt.setInteger("Dimension", this.dimension);
 		return nbt;
 		
     }
-	public void readDataFromNBT(NBTTagCompound nbt)
+	public void readFromNBT(NBTTagCompound nbt)
     {
+		super.readFromNBT(nbt);
 		this.dimension = nbt.getInteger("Dimension");
     }
 }
