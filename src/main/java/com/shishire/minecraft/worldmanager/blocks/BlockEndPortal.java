@@ -42,16 +42,22 @@ public class BlockEndPortal extends net.minecraft.block.BlockEndPortal
 		if (!entityIn.isRiding() && !entityIn.isBeingRidden() && entityIn.isNonBoss() && !worldIn.isRemote
 			&& entityIn.getEntityBoundingBox().intersectsWith(state.getBoundingBox(worldIn, pos).offset(pos)))
 		{
-			//entityIn.changeDimension(1);
-			//TileEntity tileEntityIn = worldIn.getTileEntity(pos);
-			//if(tileEntityIn instanceof TileEntityEndPortal)
-			//{
-			//	TileEntityEndPortal tileEntityEndPortal = (TileEntityEndPortal)tileEntityIn;
-			//	entityIn.changeDimension(tileEntityEndPortal.getDimension());
-			//	WorldManager.LOG.info("Moving " + entityIn.getName() + " to dimension " + tileEntityEndPortal.getDimension());
-			//}
+			// entityIn.changeDimension(1);
+			final TileEntity tileEntityIn = worldIn.getTileEntity(pos);
+			if (tileEntityIn instanceof TileEntityEndPortal)
+			{
+				final TileEntityEndPortal tileEntityEndPortal = (TileEntityEndPortal) tileEntityIn;
+				entityIn.changeDimension(tileEntityEndPortal.getDimension());
+				WorldManager.LOG
+					.info("Moving " + entityIn.getName() + " to dimension " + tileEntityEndPortal.getDimension());
+			}
+			else
+			{
+				WorldManager.LOG.error(entityIn.getName() + " interacted with " + state.getBlock().getUnlocalizedName()
+					+ " but " + tileEntityIn.getClass().toString() + " is not " + TileEntityEndPortal.class.toString());
+			}
 
-			WorldManager.LOG.info("No dimension hopping with WorldManager. Muahahaha!");
+			//WorldManager.LOG.info("No dimension hopping with WorldManager. Muahahaha!");
 		}
 	}
 }
