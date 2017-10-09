@@ -22,25 +22,25 @@ public class CommonProxy
 		MinecraftForge.EVENT_BUS.register(new DimensionHandler());
 		try
 		{
-			final BlockEndPortal endPortal = (BlockEndPortal) new BlockEndPortal(Material.PORTAL);
+			BlockEndPortal endPortal = (BlockEndPortal) new BlockEndPortal(Material.PORTAL);
 			GameRegistry.register(endPortal);
 			GameRegistry.register(new ItemBlock(endPortal).setRegistryName(endPortal.getRegistryName()));
 			GameRegistry.registerTileEntity(TileEntityEndPortal.class, WorldManager.MOD_ID + ":end_portal");
 			GameRegistry.addSubstitutionAlias("minecraft:end_portal", Type.BLOCK, new BlockEndPortal(Material.PORTAL));
 		}
-		catch (final ExistingSubstitutionException e)
+		catch (ExistingSubstitutionException e)
 		{
 			WorldManager.LOG.warn("Unable to replace End Portal.  End Portals may behave incorrectly");
 		}
 		try
 		{
-			final BlockPortal netherPortal = (BlockPortal) new BlockPortal();
+			BlockPortal netherPortal = (BlockPortal) new BlockPortal();
 			GameRegistry.register(netherPortal);
 			GameRegistry.register(new ItemBlock(netherPortal).setRegistryName(netherPortal.getRegistryName()));
 			GameRegistry.registerTileEntity(TileEntityPortal.class, WorldManager.MOD_ID + ":portal");
 			GameRegistry.addSubstitutionAlias("minecraft:portal", Type.BLOCK, new BlockPortal());
 		}
-		catch (final ExistingSubstitutionException e)
+		catch (ExistingSubstitutionException e)
 		{
 			WorldManager.LOG.warn("Unable to replace Nether Portal.  Nether Portals may behave incorrectly");
 		}

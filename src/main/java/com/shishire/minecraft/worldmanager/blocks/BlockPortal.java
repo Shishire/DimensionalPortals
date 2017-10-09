@@ -1,7 +1,6 @@
 package com.shishire.minecraft.worldmanager.blocks;
 
 import com.shishire.minecraft.worldmanager.WorldManager;
-
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -32,15 +31,28 @@ public class BlockPortal extends net.minecraft.block.BlockPortal implements ITil
     {
         if (!entityIn.isRiding() && !entityIn.isBeingRidden() && entityIn.isNonBoss())
         {
+        	TileEntity tileEntityIn = worldIn.getTileEntity(pos);
+			if (tileEntityIn instanceof TileEntityPortal)
+			{
+				TileEntityPortal tileEntityPortal = (TileEntityPortal) tileEntityIn;
+				entityIn.changeDimension(tileEntityPortal.getDimension());
+				WorldManager.LOG.info("Moving " + entityIn.getName() + " to dimension " + tileEntityPortal.getDimension());
+
+			}
+			else
+			{
+				WorldManager.LOG.error(entityIn.getName() + " interacted with " + state.getBlock().getUnlocalizedName()
+					+ " but " + tileEntityIn.getClass().toString() + " is not " + TileEntityPortal.class.toString());
+			}
             //entityIn.setPortal(pos);
-        	WorldManager.LOG.info("No portal for you! Muahaha");
+        	//WorldManager.LOG.info("No portal for you! Muahaha");
         }
     }
     
     @Override
 	public TileEntity createNewTileEntity(World worldIn, int meta)
 	{
-		final TileEntityPortal tileEntityPortal = new TileEntityPortal();
+		TileEntityPortal tileEntityPortal = new TileEntityPortal();
 		tileEntityPortal.setDimension(-1);
 
 		return tileEntityPortal;
