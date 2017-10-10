@@ -54,12 +54,13 @@ public class WorldManager
 			// Use default values?
 			//TODO:Do something if config can't be loaded.
 		}
+		WorldManager.LOG.info("Initializing World Manager.  Hang on to your hats.");
+		WorldManager.proxy.preInit(event);
 	}
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		WorldManager.LOG.info("Initializing World Manager.  Hang on to your hats.");
-		WorldManager.proxy.init(event);
+		
 
 	}
 }

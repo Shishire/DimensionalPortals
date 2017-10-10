@@ -1,4 +1,4 @@
-package com.shishire.minecraft.worldmanager.blocks;
+package com.shishire.minecraft.worldmanager.tileentity;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;

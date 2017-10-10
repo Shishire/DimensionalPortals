@@ -1,6 +1,8 @@
 package com.shishire.minecraft.worldmanager.blocks;
 
 import com.shishire.minecraft.worldmanager.WorldManager;
+import com.shishire.minecraft.worldmanager.tileentity.TileEntityPortal;
+
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;

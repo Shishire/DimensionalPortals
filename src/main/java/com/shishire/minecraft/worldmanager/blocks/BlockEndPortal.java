@@ -8,6 +8,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -58,4 +59,10 @@ public class BlockEndPortal extends net.minecraft.block.BlockEndPortal
 			//WorldManager.LOG.info("No dimension hopping with WorldManager. Muahahaha!");
 		}
 	}
+	
+	@Override
+    public EnumBlockRenderType getRenderType(IBlockState state)
+    {
+        return EnumBlockRenderType.INVISIBLE;
+    }
 }
