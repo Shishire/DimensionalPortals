@@ -1,4 +1,4 @@
-package com.shishire.minecraft.worldmanager;
+package com.shishire.minecraft.dimensionalportals.client.renderer.block.statemap;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.shishire.minecraft.worldmanager;
+package com.shishire.minecraft.dimensionalportals;
 
 import net.minecraftforge.common.config.Configuration;
 

@@ -1,0 +1,13 @@
+{
+	"forge_marker" : 1,
+	"defaults" : {
+		"textures" : {
+			"all" : "minecraft:blocks/portal"
+		},
+		"model" : "minecraft:cube_all"
+	},
+    "variants": {
+        "normal" :    [{}],
+        "inventory" : [{}]
+    }
+}
